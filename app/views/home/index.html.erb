@@ -13,9 +13,9 @@
 
             <% if current_user %>
                 Welcome <%= current_user.name %>!
-                <%= button_to "Sign Out", signout_path  %>
+                <% button_to "Sign Out", signout_path  %>
             <% else %>
-                <%= button_to "Sign In with Facebook", "/auth/facebook" %>
+                <% button_to "Sign In with Facebook", "/auth/facebook" %>
             <% end %>
 
     <p>
