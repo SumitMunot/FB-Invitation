@@ -1,0 +1,56 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:fb="https://www.facebook.com/2008/fbml">
+
+<head>
+    
+</head>
+<body>
+    <div id="fb-root"></div>
+    <script src="http://connect.facebook.net/en_US/all.js"></script>
+
+    <center>
+        <h1>Facebook Demo Send Invetation Application</h1>
+
+            <% if current_user %>
+                Welcome <%= current_user.name %>!
+                <%= button_to "Sign Out", signout_path  %>
+            <% else %>
+                <%= button_to "Sign in with Facebook", "/auth/facebook" %>
+            <% end %>
+
+    <p>
+    <input type="button"
+      onclick="sendRequestViaMultiFriendSelector(); return false;"
+      value="Send Request To Your Facebook Friends"
+    />
+    </p>
+    
+   </center>
+
+    <script>
+      FB.init({
+        appId  : '352901268149640',
+        frictionlessRequests: true
+      });
+
+      function sendRequestToRecipients() {
+        var user_ids = document.getElementsByName("user_ids")[0].value;
+        FB.ui({method: 'apprequests',
+          message: 'Awesome Application try it once',
+          to: user_ids
+        }, requestCallback);
+      }
+
+      function sendRequestViaMultiFriendSelector() {
+        FB.ui({method: 'apprequests',
+          message: 'Awesome application try it once'
+        }, requestCallback);
+      }
+      
+      function requestCallback(response) {
+        // Handle callback here
+      }
+    </script>
+
+  </body>
+</html>
