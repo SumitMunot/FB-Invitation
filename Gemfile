@@ -12,6 +12,7 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'execjs'
 gem 'pg'
+gem 'mongrel', '1.2.0.pre2'
 
 
 # Gems used only for assets and not required
